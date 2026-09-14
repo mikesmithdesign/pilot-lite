@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<!--
+  The Pilot's House Lite: free one-page B&B template.
+  Free for personal and commercial use. Attribution appreciated.
+  Full version (three room pages with photo galleries, an area guide, an
+  enquiry form, four colour packs, JSON config, Astro): see README.md.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Pilot&rsquo;s House Lite : free B&amp;B template</title>
+<meta name="description" content="The Pilot's House Lite is a free one-page HTML template for a small B&amp;B or guesthouse. Airy, photography-led, no build step. Full Astro version available.">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400..700;1,400..600&family=Karla:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top">The Pilot&rsquo;s House</a>
+    <div class="top-right">
+      <a class="top-tel" href="tel:+441632960118">01632 960 118</a>
+      <a class="btn" href="#stay">Ask about dates</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1>Three Rooms Above the Harbour.</h1>
+      <p class="h-sub">A small B&amp;B in an old pilot's house on the Cornish coast path at Porthgale. Proper breakfast, <b>rooms from &pound;120</b>.</p>
+      <div class="h-cta">
+        <a class="btn" href="#rooms">See the rooms</a>
+        <a class="btn line" href="#stay">Ask about dates</a>
+      </div>
+    </div>
+    <div class="h-ph"><img src="img/hero.jpg" alt="A white-linened bed in a light-filled room with a wooden ladder against the wall" fetchpriority="high"></div>
+  </div>
+</section>
+
+<section class="roomstrip" id="rooms">
+  <div class="wrap">
+    <div class="rs-head">
+      <h2>The Rooms.</h2>
+      <p>Three of them, each with its own bathroom. Breakfast included, always.</p>
+    </div>
+    <div class="rs-row">
+      <div class="rs-card reveal">
+        <div class="ph"><img src="img/room-lookout.jpg" alt="The Lookout: a white bed under the eaves with a driftwood ladder and shuttered window"></div>
+        <h3>The Lookout</h3>
+        <p><b>From &pound;150</b>, the top of the house</p>
+      </div>
+      <div class="rs-card reveal">
+        <div class="ph"><img src="img/room-harbour.jpg" alt="The Harbour Room: a white bed beside a bright window with a reading lamp"></div>
+        <h3>The Harbour Room</h3>
+        <p><b>From &pound;135</b>, the biggest window</p>
+      </div>
+      <div class="rs-card reveal">
+        <div class="ph"><img src="img/room-garden.jpg" alt="The Garden Room: a bed in green leaf-print linen in a pale room"></div>
+        <h3>The Garden Room</h3>
+        <p><b>From &pound;120</b>, its own door outside</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="housetease">
+  <div class="wrap ht-grid">
+    <div class="ph reveal"><img src="img/house-front.jpg" alt="The stone front of the house with flowers along the wall"></div>
+    <div>
+      <h2>The House Came with Three Good Rooms.</h2>
+      <p>Built in the 1830s for the man who watched ships into the harbour. Breakfast is cooked, not a basket of things in plastic, and the coast path starts at the gate.</p>
+    </div>
+  </div>
+</section>
+
+<section class="stay" id="stay">
+  <div class="wrap stay-grid">
+    <div>
+      <h2>Ask About Dates.</h2>
+      <p class="st-lede">No booking engine here. Ring or write and we'll reply the same day with what's free and what it costs.</p>
+      <a class="tel" href="tel:+441632960118">01632 960 118</a>
+      <a class="alink" href="mailto:stay@thepilotshouse.uk">stay@thepilotshouse.uk</a>
+    </div>
+    <div class="ph reveal"><img src="img/stay-window.jpg" alt="A chair beside a bright window looking onto green"></div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-line">
+      <span class="fbrand">The Pilot&rsquo;s House</span>
+      <span>4 Stack Lane, Porthgale, Cornwall TR19 7QX</span>
+      <a href="tel:+441632960118">01632 960 118</a>
+      <span>&copy; The Pilot's House 2026</span>
+    </div>
+    <p class="foot-disc">A fictional guesthouse. Free demo template by Mike Smith Design. Photography is placeholder, replace for production.</p>
+  </div>
+</footer>
+
+<script src="lenis.min.js"></script>
+<script>
+const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!REDUCED && window.Lenis) {
+  const lenis = new Lenis({ lerp: .09 });
+  (function raf(t) { lenis.raf(t); requestAnimationFrame(raf); })();
+}
+document.querySelectorAll('a[href^="#"]').forEach(a => a.addEventListener('click', e => {
+  e.preventDefault();
+  document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+}));
+
+const io = new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+}), { threshold: .16 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+if (REDUCED) document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+</script>
+</body>
+</html>
