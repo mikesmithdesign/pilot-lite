@@ -36,4 +36,4 @@ native date inputs and a room preselect, four colour packs, and JSON-driven
 content (rebrand the whole site from one data folder), built as an Astro 7
 project.
 
-→ https://mikesmithdesign.gumroad.com/l/pilot-astro-theme (£20)
+→ [Pilot, the full Astro theme for guesthouses and B&Bs](https://mikesmithdesign.co.uk/themes/pilot) (£20)
